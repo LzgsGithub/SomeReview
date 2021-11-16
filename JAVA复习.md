@@ -151,4 +151,54 @@
 
 ### Scanner类
 
-Scanner扫描器类在java.util包中多用于数据输入。
+Scanner扫描器类在java.util包中多用于数据输入，它只接收空格前的数据，若想接收空格则需要加入`useDelimiter("\n")` 方法设置读取分隔符为回车，或者使用`nextLine()`方法。
+
+```java
+import java.util.Scanner;
+public class Demo{
+    public static void mian(String[] args){
+        Scanner input = new Scanner(System.in);
+        //input.useDelimiter("\n");
+        String str = input.nextLine();
+        //选择一个类型去接受输入的内容
+        //int i = input.nextInt();
+        //int f = input.nextFloat();
+    }
+}
+```
+
+### Math类和Date类
+
+类似其他语言的math类库
+
+`Date dateNow = new Date();`	Date类的使用。
+
+## 类之间的关系
+
+### 继承(extends)
+
+`class SubClass extends SuperClass{}`
+
+* 只能单继承
+* final 类不可继承
+
+
+### 方法的重写(override)
+
+子类重写父类的方法
+
+* 方法名、参数列表和返回值必须和父类相同
+* 可访问性要保持一致
+* 不能重写静态方法(static)和最终方法(final)
+
+### 内部类
+
+类里定义类
+
+## 抽象类和接口
+
+### 抽象类(abstract class)和抽象方法(abstract )
+
+* `abstract`放在类前或方法前。
+* **抽象类无法被实例化，但可以有构造方法。**
+* **抽象方法没有方法体**。
