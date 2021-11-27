@@ -1,0 +1,13 @@
+package com.qst.chapter03.exercise01;
+
+public class Book2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Book book1 =new Book("java 书",100);
+		book1.name="C++书";
+		System.out.println(book1.name+"  "+book1.pages);
+	}
+
+}

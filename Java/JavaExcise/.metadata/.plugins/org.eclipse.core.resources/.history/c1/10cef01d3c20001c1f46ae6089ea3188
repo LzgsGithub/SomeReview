@@ -1,0 +1,14 @@
+package com.qst.chapter06.exercise02;
+
+public class Pd {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       Pdemo p1= new Pdemo("yes","ok");
+       p1.setA("大家好");
+       p1.setB("hello");
+       System.out.println(p1.getA());
+       System.out.println(p1.getB());
+	}
+
+}

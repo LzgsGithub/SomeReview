@@ -1,0 +1,22 @@
+package com.qst.chapter06.exercise01;
+
+public class OperationDemo {
+	public static void main(String[] args) {
+		double a= 10;
+		double b=2;
+		System.out.println("a="+a+",b="+b);
+		System.out.println("===================="+ "==");
+		
+		Operation ope = new Addition();
+		System.out.println("a+b="+ope.operation(a, b));
+		
+	    ope = new Subtraction();
+		System.out.println("a-b="+ope.operation(a, b));
+		
+	    ope = new Multiplication();
+	    System.out.println("a*b="+ope.operation(a, b));
+	
+    	ope = new Division();
+		System.out.println("a/b="+ope.operation(a, b));
+	}
+}

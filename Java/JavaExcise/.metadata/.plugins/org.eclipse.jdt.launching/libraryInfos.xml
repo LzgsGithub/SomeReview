@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="D:\JAVA教程\Java学习指南01 - 快速入门（先点保存，再用微云客户端下载）\软件安装\Eclipse菜鸟版 (无需配置直接用)\Windows 64位\eclipse-oxygen\jdk8" version="1.8.0_60">
+<bootpath>
+<entry path="D:\JAVA教程\Java学习指南01 - 快速入门（先点保存，再用微云客户端下载）\软件安装\Eclipse菜鸟版 (无需配置直接用)\Windows 64位\eclipse-oxygen\jdk8\jre\lib\resources.jar"/>
+<entry path="D:\JAVA教程\Java学习指南01 - 快速入门（先点保存，再用微云客户端下载）\软件安装\Eclipse菜鸟版 (无需配置直接用)\Windows 64位\eclipse-oxygen\jdk8\jre\lib\rt.jar"/>
+<entry path="D:\JAVA教程\Java学习指南01 - 快速入门（先点保存，再用微云客户端下载）\软件安装\Eclipse菜鸟版 (无需配置直接用)\Windows 64位\eclipse-oxygen\jdk8\jre\lib\sunrsasign.jar"/>
+<entry path="D:\JAVA教程\Java学习指南01 - 快速入门（先点保存，再用微云客户端下载）\软件安装\Eclipse菜鸟版 (无需配置直接用)\Windows 64位\eclipse-oxygen\jdk8\jre\lib\jsse.jar"/>
+<entry path="D:\JAVA教程\Java学习指南01 - 快速入门（先点保存，再用微云客户端下载）\软件安装\Eclipse菜鸟版 (无需配置直接用)\Windows 64位\eclipse-oxygen\jdk8\jre\lib\jce.jar"/>
+<entry path="D:\JAVA教程\Java学习指南01 - 快速入门（先点保存，再用微云客户端下载）\软件安装\Eclipse菜鸟版 (无需配置直接用)\Windows 64位\eclipse-oxygen\jdk8\jre\lib\charsets.jar"/>
+<entry path="D:\JAVA教程\Java学习指南01 - 快速入门（先点保存，再用微云客户端下载）\软件安装\Eclipse菜鸟版 (无需配置直接用)\Windows 64位\eclipse-oxygen\jdk8\jre\lib\jfr.jar"/>
+<entry path="D:\JAVA教程\Java学习指南01 - 快速入门（先点保存，再用微云客户端下载）\软件安装\Eclipse菜鸟版 (无需配置直接用)\Windows 64位\eclipse-oxygen\jdk8\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\JAVA教程\Java学习指南01 - 快速入门（先点保存，再用微云客户端下载）\软件安装\Eclipse菜鸟版 (无需配置直接用)\Windows 64位\eclipse-oxygen\jdk8\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\JAVA教程\Java学习指南01 - 快速入门（先点保存，再用微云客户端下载）\软件安装\Eclipse菜鸟版 (无需配置直接用)\Windows 64位\eclipse-oxygen\jdk8\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>
