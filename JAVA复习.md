@@ -620,7 +620,7 @@ public class ImpRunnable implements Runnable {
 
 ### 线程的生命周期
 
-![image-20211128142349686](\image\image-20211128142349686.png)
+![image-20211128142349686](https://github.com/LzgsGithub/SomeReview/blob/master/image/image-20211128142349686.png)
 
 * 当使用new关键字创建一个线程之后，该线程就处于新建状态
 
