@@ -1,5 +1,7 @@
 # JAVA复习
 
+>注意看一下每章的目标，只需要把要求会写的重点掌握，其余要求的能看懂就行。
+>
 >写的不全，大家可以考前看一下PPT里面的表格，了解下一些特定类的方法，只要知道什么意思即可。
 
 > 对于类的继承、多态等特性，如果实在理解不了，可以结合具体例子理解。
@@ -504,5 +506,220 @@ while (iterator.hasNext()) {
 
 ①加载数据库驱动 => ②建立数据连接 => ③创建Statement对象 => ④执行SQL语句 => ⑤访问结果集
 
+### 加载数据库驱动
 
+`Class.forName(数据库驱动类名);`
 
+### 建立数据连接
+
+`DriverManager.getConnection(String url,String user,String password);`
+
+### 创建Statement对象
+
+`Statement smt = conn.createStatement(); `
+
+### 执行SQL语句
+
+`ResultSet rs = smt.executeQuery("SELECT sno,name,age FROM student"); `
+
+### 访问结果集
+
+```java
+//循环输出第一列数据
+while (rs.next()) {
+	System.out.println(rs.getString(1));
+}
+//循环输出列名为username的数据
+while (rs.next()) {
+	System.out.println(rs.getString("username"));
+}
+```
+
+### 关闭创建的对象
+
+* 关闭结果集`re.close()`
+
+* 关闭Statement对象`stmt.close()`
+
+* 关闭连接`conn.close()`
+
+### 还有些剩下的知识点 看一下ppt和示例代码即可
+
+## 线程
+
+进程的三个特征：独立、动态、并发
+
+### 创建线程的两种方式
+
+#### 继承Thread类
+
+* 定义一个类继承Thread类，并重写Thread类的run()方法，run()方法的方法体就是线程要完成的任务，因此把run()称为线程的执行体;
+* 创建该类的实例对象，即创建了线程对象
+* 调用线程对象的start()方法来启动线程
+
+```java
+public class ExtendThread extends Thread {
+	private int i;
+	public static void main(String[] args) {
+		for(int j = 0;j < 50;j++) {
+			//调用Thread类的currentThread()方法获取当前线程
+			System.out.println(Thread.currentThread().getName() + " " + j);
+			if(j == 10) {
+				//创建并启动第一个线程
+				new ExtendThread().start();
+				//创建并启动第二个线程
+				new ExtendThread().start();
+			}
+		}
+	}
+	public void run() {
+		for(;i < 100;i++) {
+			//当通过继承Thread类的方式实现多线程时，可以直接使用this获取当前执行的线程
+			System.out.println(this.getName() + " "  + i);
+		}
+	}
+}
+```
+
+#### 实现Runnable接口
+
+* 定义一个类实现Runnable接口
+
+* 创建该类的实例对象obj
+
+* 将obj作为构造器参数传入Thread类实例对象，这个对象才是真正的线程对象
+
+* 调用线程对象的start()方法启动该线程
+
+```java
+public class ImpRunnable implements Runnable {
+	private int i;
+    
+	@Override
+	public void run() {
+		for(;i < 50;i++) {	
+			//当线程类实现Runnable接口时，要获取当前线程对象只有通过Thread.currentThread()获取
+			System.out.println(Thread.currentThread().getName() + " " + i);
+		}
+	}
+	public static void main(String[] args) {
+		for(int j = 0;j < 30;j++) {
+			System.out.println(Thread.currentThread().getName() + " " + j);
+			if(j == 10) {
+				ImpRunnable thread_target = new ImpRunnable();
+				//通过new Thread(target,name)的方式创建线程
+				new Thread(thread_target,"线程1").start();
+				new Thread(thread_target,"线程2").start();
+			}
+		}
+	}
+}
+```
+
+  
+
+### 线程的生命周期
+
+![image-20211128142349686](C:\Users\a\AppData\Roaming\Typora\typora-user-images\image-20211128142349686.png)
+
+* 当使用new关键字创建一个线程之后，该线程就处于新建状态
+
+* 可用`isAlive()`方法获取线程是否死亡
+
+### 线程的优先级
+
+* Thread类提供了`setPriority()`方法来对线程的优先级进行设置，而`getPriority()`方法来获取线程的优先级
+
+* MAX_PRIORITY：最高优先级，其值为10
+
+* NORM_PRIORITY：普通优先级，其值为5
+
+* MIN_PRIORITY：最低优先级，其值为1
+
+### 线程同步(synchronized)
+
+有共享数据会产行线程安全问题。
+
+#### 同步代码块
+
+```java
+synchronized(object){
+    //多个线程要使用同一个同步监视器(锁)
+	// 需要同步的代码块
+}
+```
+
+#### 同步方法
+
+```java
+public synchronized void access(double money)
+```
+
+#### 同步锁
+
+```java
+//定义一个ReentrantLock锁对象，该对象是final常量
+private final ReentrantLock lock = new ReentrantLock();
+//在需要保证线程安全的代码之前增加“加锁”操作
+lock.lock();
+//在执行完线程安全的代码后“释放锁”
+lock.unlock();
+```
+
+#### 线程通信
+
+* wait()方法调用时会释放对象所，而sleep()不会
+* notify()方法和notifyAll()方法只能在同步方法或同步块中使用
+* notify()方法使线程从阻塞态变为就绪态
+
+### Java网络编程
+
+### URL 类
+
+### Socket类
+
+#### 使用Socket进行网络通信的具体步骤：
+
+​	① 根据指定IP地址和端口号创建一个Socket对象
+
+​	② 调用getInputStream()方法或getOutputStream()方法打开连接到Socket的输入/出流
+
+​	③ 客户端与服务器根据协议进行交互，直到关闭连接
+
+​	④ 关闭客户端的Socket
+
+#### 使用ServerSocket进行网络通信的具体步骤：
+
+​	① 根据指定的端口号来实例化一个ServerSocket对象
+
+​	② 调用ServerSocket对象的accept()方法接收客户端发送的Socket对象
+
+​	③ 调用Socket对象的getInputStream()/getOutputStream()方法来建立与客户端进行交互的IO流
+
+​	④ 服务器与客户端根据一定的协议交互，直到关闭连接
+
+​	⑤ 关闭服务器端的Socket
+
+​	⑥ 回到第2步，继续监听下一次客户端发送的Socket请求连接
+
+####  使用Socket进行基于C/S架构的网络通信程序设计的过程：
+
+​	① 服务器端通过某个端口监听是否有客户端发送Socket连接请求
+
+​	② 客户端向服务器端发出一个Socket连接请求
+
+​	③ 服务器端调用accept()接收客户端Socket并建立连接
+
+​	④ 通过调用Socket对象的getInputStream()/getOutStream()方法进行IO流操作，服务器与客户端之间进行信息交互
+
+​	⑤ 关闭服务器端和客户端的Socket
+
+#### 实现客户端与服务器之间的信息交互的步骤：
+
+​	① 客户端调用Socket对象的getOutputStream()方法获取输出流
+
+​	② 服务器端调用Socket对象的getInputStream()方法获取输入流
+
+​	③ 服务器端调用Socket对象的getOutputStream()方法获取输出流
+
+​	④ 最后客户端调用Socket对象的getInputStream()方法获取输入流
